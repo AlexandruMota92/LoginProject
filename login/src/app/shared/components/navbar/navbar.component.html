@@ -1,0 +1,15 @@
+<mat-toolbar>
+    <!-- <ng-container class="navbar-container"> -->
+        <span>JWT-Login</span>
+        <div class="navbar-items">
+            <ng-container *ngIf="!auth">
+                <button mat-raised-button routerLink="/login">Login</button>
+                <button mat-raised-button routerLink="/register">Register</button>
+            </ng-container>
+            <ng-container *ngIf="auth">
+                <button mat-raised-button routerLink="/home">Home</button>
+                <button mat-raised-button (click)="logout()">Logout</button>
+            </ng-container>
+        </div>
+    <!-- </ng-container> -->
+</mat-toolbar>

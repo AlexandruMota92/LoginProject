@@ -14,13 +14,15 @@ import { MaterialModule } from './shared/material/material.module';
 import { LocalStorageService } from './core/services/localStorageService.service';
 import { AuthenticationService } from './core/services/authentication.service';
 import { AuthenticationInterceptor } from './core/interceptors/authentication.interceptor';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
         RegisterComponent,
-        HomeComponent
+        HomeComponent,
+        NavbarComponent
     ],
     imports: [
         HttpClientModule,

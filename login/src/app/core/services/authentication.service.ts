@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AuthenticationService
 {
+    public authenticated$ = new BehaviorSubject<boolean>(false);
     private readonly url: string = 'http://127.0.0.1:8000/api/auth';
-
+    
     constructor(private http: HttpClient) {}
 
     public login(body: Object): Observable<any> 
@@ -41,12 +42,18 @@ export class AuthenticationService
         return this.http.post(url, '');
     }
 
-    public getUserProfile(): Observable<any> {
+    public getUserProfile(): Observable<any>
+    {
 
         let url: string;
         url = this.url + '/user-profile';
 
         return this.http.get(url);
+    }
+
+    public setAuthenticationStatus(status: boolean): void
+    {
+        this.authenticated$.next(status);
     }
     
 }

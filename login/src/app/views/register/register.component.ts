@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit
         this.authService.register(body).subscribe(
             (result: any) =>
             {
-                this.alerts.openSnackBar(result.message, 'Close', 'blue');
+                this.alerts.openSnackBar(result.message, 'Close', 'success-snackbar');
                 this.router.navigate(['login']);
             },
             (error: any) =>
@@ -50,15 +50,15 @@ export class RegisterComponent implements OnInit
                 error = JSON.parse(error.error);
                 if(typeof error.username !== 'undefined')
                 {
-                    this.alerts.openSnackBar(error.username, 'Close', 'blue');
+                    this.alerts.openSnackBar(error.username, 'Close', 'error-snackbar');
                 }
                 if(typeof error.password !== 'undefined')
                 {
-                    this.alerts.openSnackBar(error.password, 'Close', 'blue');
+                    this.alerts.openSnackBar(error.password, 'Close', 'error-snackbar');
                 }
                 if(typeof error.email !== 'undefined')
                 {
-                    this.alerts.openSnackBar(error.email, 'Close', 'blue');
+                    this.alerts.openSnackBar(error.email, 'Close', 'error-snackbar');
                 }
             }
         )

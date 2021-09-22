@@ -1,14 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-// input.ng-invalid.ng-dirty
-// {
-//     border-bottom-color: red !important;
-//     box-shadow: 0 1px 0 0 red !important;
-// }
+$primary-blue: #091535;
+$light-green: #d4edda;
+$light-orange: #fffbe5;
+$light-blue: #cce5ff;
+$light-red: #ffc4c4;
 
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
+.success-snackbar {
+    background-color: $light-green;
+    color: $primary-blue;
+}
+
+.warning-snackbar {
+    background-color: $light-orange;
+    color: $primary-blue;
+}
+
+.info-snackbar {
+    background-color: $light-blue;
+    color: $primary-blue;
+}
+
+.error-snackbar {
+    background-color: $light-red;
+    color: $primary-blue;
+}

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Alerts } from 'src/app/core/services/alerts.service';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { LocalStorageService } from 'src/app/core/services/localStorageService.service';
+import { isThisTypeNode } from 'typescript';
 
 @Component({
     selector: 'app-login',
@@ -42,12 +43,14 @@ export class LoginComponent implements OnInit
         (
             (result: any) =>
             {
+                this.authService.setAuthenticationStatus(true);
                 this.localStorageService.set('token', `Bearer ${result.access_token}`);
                 this.router.navigate(['home']);
             },
             (error: any) =>
             {
-                this.alerts.openSnackBar(error.error.error, 'Close', 'red-snackbar');
+                this.authService.setAuthenticationStatus(false);
+                this.alerts.openSnackBar(error.error.error, 'Close', 'error-snackbar');
             }
         )
     }
