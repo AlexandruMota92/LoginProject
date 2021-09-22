@@ -1,0 +1,23 @@
+<h2>Register</h2>
+<form [formGroup]="registerForm" class="register-form" (ngSubmit)="register()">
+    <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" placeholder="Placeholder">
+        <mat-error *ngIf="registerForm.controls.username.invalid && !registerForm.controls.username.pristine">
+            Username is invalid
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Placeholder">
+        <mat-error *ngIf="registerForm.controls.password.invalid && !registerForm.controls.password.pristine">Password is
+            invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Placeholder">
+        <mat-error *ngIf="registerForm.controls.username.invalid && !registerForm.controls.username.pristine">Username is
+            invalid</mat-error>
+    </mat-form-field>
+    <button [disabled]="registerForm.invalid" mat-raised-button>Submit</button>
+</form>
